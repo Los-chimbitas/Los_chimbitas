@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'EducacionEstrella.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'educacionestrella',
-        'USER': 'erich',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
+        'NAME': 'estrella_db',
+        'USER': 'estrella_user',
+        'PASSWORD': 'isis2505',
+        'HOST': '172.24.41.173',
         'PORT': '5432',
     } #esto hay que cambirlo
 }
