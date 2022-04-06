@@ -55,7 +55,7 @@ ROOT_URLCONF = 'EducacionEstrella.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'monitoring', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'EducacionEstrella', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
