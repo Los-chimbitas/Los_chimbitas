@@ -44,7 +44,7 @@ def empleo_createa(request):
         if form.is_valid():
             empleo_create(form)
             messages.add_message(request, messages.SUCCESS, 'Measurement create successful')
-            return HttpResponseRedirect(reverse('empleoCreate'))
+            return HttpResponseRedirect(reverse('empleocreate'))
         else:
             print(form.errors)
     else:

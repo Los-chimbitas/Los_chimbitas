@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     path('empleos/', views.empleos_view, name='empleos_view'),
     path('empleos/<int:pk>', views.empleo_view, name='empleo_view'),
-    path('empleocreate/', csrf_exempt(views.empleo_createa), name='empleoCreate')
+    path('empleocreate/', csrf_exempt(views.empleo_createa), name='empleocreate')
 ]
