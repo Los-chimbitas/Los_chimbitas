@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bolsa',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,21 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "/login/auth0"
+
+LOGIN_REDIRECT_URL = "/"
+
+LOGOUT_REDIRECT_URL = "https://los-chimbitas.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F18.206.155.187:8000"
+
+SOCIAL_AUTH_TRAILING_SLASH = False
+SOCIAL_AUTH_AUTH0_DOMAIN = 'los-chimbitas.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'zK4umwZJUTMkFF6quqk7HyjhNmQI6Jds'
+SOCIAL_AUTH_AUTH0_SECRET = 'Qds4pDwlewHY_misKtmQMccx6XNL55vfZcZZ9UycA_b7NUOSfvEPbMVlyXnbw4X1'
+
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile', 'email', 'role', ]
+
+AUTHENTICATION_BACKENDS = { 
+	'monitoring.auth0backend.Auth0', 
+	'django.contrib.auth.backends.ModelBackend', 
+}

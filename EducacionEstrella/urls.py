@@ -22,4 +22,6 @@ urlpatterns = [
     path('home/', views.home),
     path('', views.home),
     path('', include('bolsa.urls')),
+    path(r'', include('social_django.urls')),
+    path(r'', include('django.contrib.auth.urls')),
 ]
