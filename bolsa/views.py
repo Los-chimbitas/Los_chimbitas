@@ -28,6 +28,8 @@ def empleos_view(request):
         empleo= serializers.serialize('json',[empleo_dto,])
         return HttpResponse(empleo,'application/json')
 
+
+
 def empleo_view(request, pk):
     if request.method == 'GET':
         empleo=vl.get_empleo(pk)
