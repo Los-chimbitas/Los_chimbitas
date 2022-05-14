@@ -1,5 +1,6 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -11,9 +12,12 @@ from django.contrib import messages
 
 from .logic.logic_variable import empleo_create
 
+from EducacionEstrella.auth0backend import getRole
+
 
 def empleos_view(request):
-    if request.method == 'GET':
+    role = getRole(request)
+    if request.method == 'GET' and (role == "Empleador" or role == "Estudiante") :
         id = request.GET.get("id", None)
         if id:
             empleo_dto= vl.get_empleo(id)
@@ -39,9 +43,10 @@ def empleo_view(request, pk):
         empleo_dto =vl.update_empleo(pk,json.loads(request.body))
         empleo = serializers.serialize('json',[empleo_dto,])
         return HttpResponse(empleo, 'application/json')
-
+@login_required
 def empleo_createa(request):
-    if request.method == 'POST':
+    role = getRole(request)
+    if request.method == 'POST' and role == "Empleador":
         form = EmpleoForm(request.POST)
         if form.is_valid():
             empleo_create(form)
